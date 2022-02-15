@@ -1,2 +1,8 @@
 # IOT_UNDERGROUND-FAULT-LOCATION-AND-DETECTION
 <Final Year Project 2021>
+
+# ABSTRACT
+Fault in power systems is one of the greatest problems that cause power disruptions. It can occur from generation, distribution, and consumer systems. This project will focus mainly on the underground line fault.Underground cables are used more often in urban areas than overhead lines. It is difficult to locate a fault when it occurs, and the process may be time-consuming and costly. The proposed system will find the exact location of the fault and facilitate timely maintenance. The concept of a potential divider network connected across the underground line will be used.
+Previous innovations were implemented using the Arduino microcontroller and GSM to send text messages. The proposed system will be implemented using the Atmega microcontroller since it has more memory and better processing power, thus suitable for industrial use. IoT will allow the authority to check faults over the internet while in their respective stations. Therefore, they can alert the technicians who are near the particular location for repair.
+A set of resistors represents the length of the cable in kilometres, and faults are created at predefined distances using switches. In case of a fault, there will be a change in current drops, which will be sent to the microcontroller. The ADC in the microcontroller interprets the data and conveys the information to the user in terms of distance in kilometres. This is then displayed over the LCD and shared online using the IoT platform.
+Future implementation can be incorporated even to include text to speech and email technologies. Moreover, a capacitor in an AC circuit can measure the impedance, thus locating the open-circuited fault.
