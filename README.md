@@ -20,8 +20,16 @@ The system overview is shown below
 # Flow Chart
 
 It is shown below
-<img src="">
+<img src="flowchart.png">
 
 #System Components
-#Schematic Diagram
+
+1. Arduino Uno
+2. Current sensing circuit-Combination of resistors and switches
+3. 1kilo ohm resistor
+4. Push button
+5. Esp32(Wemos Lolin32)
+6. Relays
+# Schematic Diagram
+
 #Simulation
