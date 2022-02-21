@@ -20,16 +20,18 @@ The system overview is shown below
 # Flow Chart
 
 It is shown below
+
 <img src="flowchart.png">
 
-#System Components
+# System Components
 
-1. Arduino Uno
+1. Arduino Uno [Arduino Rev3](https://store-usa.arduino.cc/products/arduino-uno-rev3/)
 2. Current sensing circuit-Combination of resistors and switches
 3. 1kilo ohm resistor
-4. Push button
-5. Esp32(Wemos Lolin32)
-6. Relays
+4. Push button[Component](https://components101.com/switches/push-button)
+5. Esp32(Wemos Lolin32)[Component](https://artofcircuits.com/product/lolin32-esp32-dual-core-wifibluetooth-development-board-with-battery-charger)
+6. Relays [Component](https://elearn.ellak.gr/mod/book/view.php?id=4568&chapterid=2440)
+
 # Schematic Diagram
 
 #Simulation
