@@ -11,12 +11,16 @@ A set of resistors represents the length of the cable in kilometres, and faults 
 # Acknowledgement
 I wish to express my sincere gratitude to Kenyatta University for providing me with the training opportunity to fulfil my dream of becoming an Electrical Engineer. More so, providing the necessary infrastructure and services to develop my engineering skills and expertise. My special thanks to my supervisor Eng. Kore for his guidance, assistance, and effort to enable the success of this project. I would also want to acknowledge my classmates for their various assistance during various research and analysis, finally, to the Almighty God for offering His grace throughout this journey.
 
-#System Overview
+# System Overview
+
 The system overview is shown below
 
 <img src="system_overview.png">
-#System Diagram
-#Flow Chart
+
+# Flow Chart
+
+It is shown below
+<img src="">
 
 #System Components
 #Schematic Diagram
