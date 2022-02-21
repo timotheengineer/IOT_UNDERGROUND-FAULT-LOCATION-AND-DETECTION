@@ -34,4 +34,7 @@ It is shown below
 
 # Schematic Diagram
 
+<img src="fault_system.PNG">
+
 #Simulation
+
