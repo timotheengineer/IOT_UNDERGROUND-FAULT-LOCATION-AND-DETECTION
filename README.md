@@ -13,7 +13,8 @@ I wish to express my sincere gratitude to Kenyatta University for providing me w
 
 #System Overview
 The system overview is shown below
-<img src=".jpg">
+
+<img src="system_overview.png">
 #System Diagram
 #Flow Chart
 
