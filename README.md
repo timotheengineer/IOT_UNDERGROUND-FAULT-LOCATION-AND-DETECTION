@@ -187,3 +187,5 @@ void loop()
    delay(15000);
   }
 ```
+## ThingSpeak Platform
+* Results
