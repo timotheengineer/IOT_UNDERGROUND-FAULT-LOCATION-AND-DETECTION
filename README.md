@@ -191,3 +191,10 @@ void loop()
 * Results
 When there is no fault, the voltage is 5v, when a short circuit fault occurs, the voltage drops due to change in resistance
 <img src="iot_platform.PNG">
+
+# Conclusion
+The main objective of this project was to develop a working IOT underground fault cable detection system. This objective was met successfully.
+Moreover, project will be of great use to the power utility companies in managing faults. This idea can even be extended to overhead power lines to facilitate real-time tracking.
+
+# Recommendation
+Future implementations will ensure data is collected and stored in a database for further analysis and prediction of future fault occurrence.
