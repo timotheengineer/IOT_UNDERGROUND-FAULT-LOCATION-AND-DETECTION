@@ -36,5 +36,154 @@ It is shown below
 
 <img src="fault_system.PNG">
 
-#Simulation
+# Simulation
 
+# Firmware and Code
+
+## Libraries
+
+SoftwareSerial.h,LiquidCrystal.h were included on the atmega328p code
+
+```
+#include <SoftwareSerial.h> //library for the serial ports
+#include <LiquidCrystal.h> //library for the LCD display
+SoftwareSerial mySerial(0,1); //defining the serial communication ports
+
+#include <WiFi.h> //include the wifi dependancies
+#include <ThingSpeak.h> //include the thingSpeak dependancies
+#include <String.h>//library for formating string
+```
+## Variables and Constants
+
+```
+int sensorPin   = A0; // select the input pin for ldr
+int sensorValue = 0; // variable to store the value coming from the sensor
+```
+## Setup fuction for arduino uno
+```
+void setup() {
+
+  pinMode(8, OUTPUT);//initialize as output for red phase
+  digitalWrite(8, LOW);//turn off the relay
+  analogWrite(6, Contrast); //specifying the LCD contrast
+
+  Serial.begin(9600); //sets serial port for communication
+  mySerial.begin(115200);
+  lcd.begin(16, 2);
+  lcd.clear(); //clear LCD screen
+  lcd.print("UNDERGROUND CABLE");
+  lcd.setCursor(0, 1); //setting the cursor position
+  lcd.print("FAULT LOCATOR");
+  delay(2000);
+}
+```
+## Loop function to check the fault
+```
+void loop()//start of the execution process
+{
+  lcd.clear();
+  digitalWrite(8, HIGH);
+  delay(3000);
+
+  sensorValue = analogRead(sensorPin); // read the value from the sensor
+ // Serial.println(sensorValue);
+  voltage=sensorValue*(5.0/1023.0);
+  //dtostrf(val, 4, 6, buff);      //convert float to a string 
+  Serial.println(voltage); //prints the line voltage from the sensor.
+  
+  if ( (sensorValue >= 1000) ) //5.0V
+  {
+    lcd.setCursor(0, 0);
+    lcd.print("R -  NF,        ") ;
+    Serial.println("R -  NF   ") ;
+
+  }
+
+  else if ( (sensorValue >= 890) && (sensorValue <= 920)  ) //4.44V
+  {
+    Serial.println("R - 2KM,") ;
+    lcd.setCursor(0, 0);
+    lcd.print("R - 2KM      ") ;
+  }
+  else if ( (sensorValue >= 870) && (sensorValue <= 880)  ) //4.29V
+  {
+    Serial.print("R - 4KM,") ;
+    lcd.setCursor(0, 0);
+    lcd.print("R - 4KM       ") ;
+  }
+  else if ( (sensorValue >= 800) && (sensorValue <= 825)  ) //4.0V
+  {
+    Serial.println("R - 6KM,") ;
+    lcd.setCursor(0, 0);
+    lcd.print("R - 6KM      ") ;
+  }
+  else if ( (sensorValue >= 670) && (sensorValue <= 688)  ) //3.33V
+  {
+    Serial.println("R - 8KM,") ;
+    lcd.setCursor(0, 0);
+    lcd.print("R - 8KM      ") ;
+  }
+  delay(2000);
+  digitalWrite(8, LOW);
+  delay(1000);
+  lcd.clear();
+  delay(1000);
+  
+}
+```
+* WiFi Setting
+I initialised the credentials for my wifi connection
+```
+const char* ssid = "FesTech-07905507";
+const char* password = "ikings001*";
+```
+* Function
+```
+//defining the ThingSpeak channel id and api key
+#define channel_id 111111
+#define channel_key "xxxxxxxdx"
+const int Field_Number_1 = 1;
+
+WiFiClient client;//initializing wifi client
+
+#define TXD2 17 //definition of tx and rx
+#define RXD2 16
+String volt;
+void initWiFi()  //function to initialise wifi
+{      
+  WiFi.mode(WIFI_STA); //setting wifi to station mode
+  WiFi.begin(ssid, password);
+  Serial.print("Connecting to WiFi ..");
+  while (WiFi.status() != WL_CONNECTED) 
+  {
+    Serial.print('.');
+    delay(1000);
+  }
+  Serial.println("Connected");
+  Serial.println(WiFi.localIP());
+}
+
+```
+* Setup function
+```
+void setup() 
+{
+  Serial.begin(115200); //setting the baud rate for serial communication
+  Serial2.begin(9600, SERIAL_8N1, RXD2, TXD2); //initialise the serial port
+  initWiFi();
+  Serial.print("RRSI: ");
+  Serial.println(WiFi.RSSI());
+  ThingSpeak.begin(client);
+}
+```
+* Loop Function
+```
+void loop() 
+{
+  Serial.println("Fault received ");
+  volt=Serial2.readString(); //initialising serial string to volt variable
+  Serial.println(volt);
+  ThingSpeak.writeField(channel_id,1,volt,channel_key); //upload the string to the IOT platform
+   delay(15000);
+  }
+```
