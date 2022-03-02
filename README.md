@@ -121,7 +121,7 @@ void loop()//start of the execution process
   {
     Serial.println("R - 8KM,") ;
     lcd.setCursor(0, 0);
-    lcd.print("R - 8KM      ") ;
+    lcd.print("R - 8KM      ") ;// print fault at 8 kilometres
   }
   delay(2000);
   digitalWrite(8, LOW);
@@ -137,7 +137,7 @@ I initialised the credentials for my wifi connection
 const char* ssid = "FesTech-07905507";
 const char* password = "ikings001*";
 ```
-* Function
+* Function and constants for ESP32
 ```
 //defining the ThingSpeak channel id and api key
 #define channel_id 111111
