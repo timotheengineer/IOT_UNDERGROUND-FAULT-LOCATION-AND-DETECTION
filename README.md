@@ -198,3 +198,18 @@ Moreover, project will be of great use to the power utility companies in managin
 
 # Recommendation
 Future implementations will ensure data is collected and stored in a database for further analysis and prediction of future fault occurrence.
+
+**Bill of Quantities**
+
+Component	|Quantity  |	Price(Ksh)|
+----------|----------|----------
+Arduino Uno(Atmega328p)	|1	|1600.00
+Wi-Fi module(ESP8266)|	1	|1200.00
+Resistors	|20	|100.00
+Push button	|12	|60
+LED	|5	|50.00
+LCD	|1	|400.00
+Relay and Relay driver	|4	|800.00
+Connecting wires	|2set	|200
+Fabrication board	|1	|100
+TOTAL	|32	|4510.00
