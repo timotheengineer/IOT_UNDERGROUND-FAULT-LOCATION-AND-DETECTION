@@ -189,3 +189,5 @@ void loop()
 ```
 ## ThingSpeak Platform
 * Results
+When there is no fault, the voltage is 5v, when a short circuit fault occurs, the voltage drops due to change in resistance
+<img src="iot_platform.PNG">
